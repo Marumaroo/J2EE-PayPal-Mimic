@@ -1,0 +1,91 @@
+body {
+    background-color:  #f5f5f5;
+}
+
+.container {
+    position: absolute;
+    left: 50%;
+    top: 50px;
+    transform: translate(-50%, 0);
+    perspective: 1000px;
+    width: 330px;
+    height: 375px;
+}
+
+.dashboard-layout {
+    align-items: center;
+    font-weight: 500;
+}
+
+.dashboard-table {
+    padding: 16px;
+    margin: 8px;
+    min-width: 600px;
+    display: inline-table;
+}
+
+.dashboard-balance {
+    height: 200px;
+}
+
+.dashboard-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-actions--container {
+    width: 100%;
+}
+
+.dashboard-button {
+    margin: 8px;
+    width: 100%;
+}
+
+.transactions {
+    text-align: left;
+    width: 100%;
+}
+
+.balance-header {
+    height: 40px;
+}
+
+.spacer {
+    width: 16px;
+}
+
+.back-button {
+    height: 40px;
+    width: 40px;
+    min-width: initial;
+}
+
+.make-payment-title {
+    padding-bottom: 7px;
+    padding-right: 60px;
+}
+
+.request-payment-title {
+    padding-bottom: 7px;
+    padding-right: 40px;
+}
+
+.dashboard-users {
+    padding: 16px;
+    margin: 8px;
+    min-width: 400px;
+}
+
+.users {
+    width: 100%;
+}
+
+.error {
+    color: #f44336;
+}
+
+.dashboard-admin--register {
+    margin: 8px;
+}

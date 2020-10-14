@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>CUSTOM-Webapps2020.war</actionName>
+            <displayName>Webapps2020.war</displayName>
+            <goals>
+                <goal>compile</goal>
+                <goal>war:war</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-Webapps2020-1.0.war</actionName>
+            <displayName>Webapps2020-1.0.war</displayName>
+            <goals>
+                <goal>compile</goal>
+                <goal>war:war</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-Compile war</actionName>
+            <displayName>Compile war</displayName>
+            <goals>
+                <goal>compile</goal>
+                <goal>war:war</goal>
+            </goals>
+        </action>
+    </actions>

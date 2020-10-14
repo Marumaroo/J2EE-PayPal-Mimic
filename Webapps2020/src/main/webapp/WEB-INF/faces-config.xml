@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+
+-->
+<faces-config version="2.3"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd">
+
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>signup</from-outcome>
+            <to-view-id>/registration.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{loginBacking.login()}</from-action>
+            <from-outcome>user-dashboard</from-outcome>
+            <to-view-id>/user/dashboard.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{loginBacking.login()}</from-action>
+            <from-outcome>admin-dashboard</from-outcome>
+            <to-view-id>/admin/dashboard.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/registration.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>signin</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{registrationBacking.register()}</from-action>
+            <from-outcome>registered</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/admin/dashboard.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{loginBacking.logout()}</from-action>
+            <from-outcome>loggedout</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{loginBacking.logout()}</from-action>
+            <from-outcome>admin-dashboard</from-outcome>
+            <to-view-id>/admin/dashboard.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/user/dashboard.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{loginBacking.logout()}</from-action>
+            <from-outcome>loggedout</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{loginBacking.logout()}</from-action>
+            <from-outcome>user-dashboard</from-outcome>
+            <to-view-id>/user/dashboard.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/user/makePayment.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{sendBacking.sendPayment()}</from-action>
+            <from-outcome>failed</from-outcome>
+            <to-view-id>/user/makePayment.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{sendBacking.sendPayment()}</from-action>
+            <from-outcome>payment-successful</from-outcome>
+            <to-view-id>/user/dashboard.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>dashboard</from-outcome>
+            <to-view-id>/user/dashboard.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/user/requestPayment.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{requestBacking.requestPayment()}</from-action>
+            <from-outcome>failed</from-outcome>
+            <to-view-id>/user/requestPayment.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{requestBacking.requestPayment()}</from-action>
+            <from-outcome>request-successful</from-outcome>
+            <to-view-id>/user/dashboard.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>dashboard</from-outcome>
+            <to-view-id>/user/dashboard.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>
